@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Nishat Begum</title>
+    <style>
+        @import url('https://googleapis.com');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0414 0%, #2b0b26 40%, #4a1231 70%, #1c051d 100%);
+            color: #fff0f5;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px 15px;
+        }
+
+        .stars-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: transparent url('data:image/svg+xml,%3Csvg xmlns="http://w3.org" width="200" height="200" viewBox="0 0 200 200"%3E%3Ccircle cx="20" cy="30" r="1" fill="%23fff" opacity="0.8"/%3E%3Ccircle cx="130" cy="40" r="1.5" fill="%23fff" opacity="0.9"/%3E%3Ccircle cx="70" cy="120" r="1" fill="%23ffd700" opacity="0.7"/%3E%3Ccircle cx="170" cy="140" r="1.2" fill="%23fff" opacity="0.6"/%3E%3C/svg%3E') repeat;
+            animation: twinkle 4s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(15, 5, 20, 0.65);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 105, 180, 0.25);
+            padding: 40px 30px;
+            border-radius: 32px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            z-index: 3;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff477e;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 71, 126, 0.6);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #ffb3c6;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .bear-stage {
+            font-size: 4rem;
+            margin: 10px 0 20px 0;
+            display: inline-block;
+            animation: playfulBear 2.5s infinite ease-in-out;
+            filter: drop-shadow(0 0 15px rgba(255,182,193,0.3));
+        }
+
+        @keyframes playfulBear {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            30% { transform: translateY(-12px) rotate(-3deg); }
+            70% { transform: translateY(-4px) rotate(3deg); }
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+            width: 100%;
+        }
+
+        .timer-card {
+            background: linear-gradient(135deg, rgba(255, 240, 243, 0.08) 0%, rgba(255, 229, 236, 0.03) 100%);
+            border: 1px solid rgba(255, 179, 198, 0.3);
+            padding: 14px 10px;
+            border-radius: 16px;
+            min-width: 78px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timer-card span:first-child {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ff477e;
+            text-shadow: 0 0 10px rgba(255, 71, 126, 0.4);
+        }
+
+        .timer-card span:last-child {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffccd5;
+            font-weight: 600;
+        }
+
+        .sparkle-text {
+            animation: magicGlow 1.5s infinite alternate;
+        }
+
+        @keyframes magicGlow {
+            0% { transform: scale(1); text-shadow: 0 0 10px #fff, 0 0 20px #ff477e; }
+            100% { transform: scale(1.03); text-shadow: 0 0 15px #fff, 0 0 30px #ff477e, 0 0 40px #ff477e; }
+        }
+
+        .message-section {
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 179, 198, 0.2);
+            padding-top: 25px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ffe5ec;
+            margin-bottom: 18px;
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: #ff477e;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255, 71, 126, 0.3);
+        }
+
+        .signature-block {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #ff477e;
+            margin-top: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            text-align: right;
+            text-shadow: 0 0 10px rgba(255, 71, 126, 0.4);
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 30px 15px;
+                border-radius: 24px;
+            }
+            h1 {
+                font-size: 2.3rem;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            .bear-stage {
+                font-size: 3.2rem;
+            }
+            .timer-card {
+                min-width: 65px;
+                padding: 10px 4px;
+            }
+            .timer-card span:first-child {
+                font-size: 1.4rem;
+            }
+            .signature-block {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-background"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="container">
+        <h1>Welcome, Syeda Nishat Fatima Naqvi</h1>
+        <div class="subtitle">My Beautiful Wife</div>
+        
+        <div class="bear-stage">💫🌟🧸🤍✨💖🌸🎀</div>
+
+        <div id="countdown-block">
+            <div class="timer-grid">
+                <div class="timer-card"><span id="days">00</span><span>Days</span></div>
+                <div class="timer-card"><span id="hours">00</span><span>Hrs</span></div>
+                <div class="timer-card"><span id="minutes">00</span><span>Min</span></div>
+                <div class="timer-card"><span id="seconds">00</span><span>Sec</span></div>
+            </div>
+        </div>
+
+        <div id="celebrate-block" style="display: none;">
+            <h1 class="sparkle-text" style="font-size: 2.6rem; margin: 20px 0;">🎉 Happy Birthday, Nishat Begum! 🎉</h1>
+        </div>
+
+        <div class="message-section">
+            <p>Every single day with you feels completely magical. You are the sweetest blessing in my life, and <span class="highlight">October 24th</span> remains my absolute favorite day in the universe—the day you came into this world.</p>
+            <p>I love you so much, <span class="highlight">Nishat Begum</span>. You are my home, my peace, and my finest reality. I built this secret surprise to promise you that I'll hold your hand and achieve you through every step of our beautiful journey. You have my whole heart, today and for all my forevers.
+            To my beautiful wife, Syeda Nishat Fatima Naqvi, you are the truest blessing, the quiet peace, and the absolute brightest star in my entire universe. Every single day spent by your side feels like a beautiful dream come true, but October 24th will always remain my favorite day in existence—the magical day you came into this world to change mine forever. I love you so much, Nishat Begum, beyond the capacity of words and deeper than any ocean. You are my home, my greatest adventure, and my finest forever. As your husband, I promise to hold your hand, cherish your smile, and protect your happiness through every single step of our beautiful journey. You have my whole heart today, on your birthday, and for all my forevers.
+Always yours, and iykyk Jeeeee one and only Syed Muhammad Ali Asghar ❤️ kaisa laggaaaa hehehehhheheheheh lallallala enjoy kro khush raho abad rho mery sath ahm ahm ameen agy agy dekhti jaooo hehe chlo nsoooo
+ </p>
+            
+            <div class="signature-block">With endless love,<br>Syed Muhammad Ali Asghar</div>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date("Oct 24, 2026 00:00:00").getTime();
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const dEl = document.getElementById("days");
+            const hEl = document.getElementById("hours");
+            const mEl = document.getElementById("minutes");
+            const sEl = document.getElementById("seconds");
+
+            if(dEl) dEl.innerHTML = days < 10 ? "0" + days : days;
+            if(hEl) hEl.innerHTML = hours < 10 ? "0" + hours : hours;
+            if(mEl) mEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            if(sEl) sEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                const cB = document.getElementById("countdown-block");
+                const celB = document.getElementById("celebrate-block");
+                if(cB) cB.style.display = "none";
+                if(celB) celB.style.display = "block";
+            }
+        }, 1000);
+
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 14 + 10;
+                this.speedX = Math.random() * 3 - 1.5;
+his.speedY = Math.random() * -1.8 - 0.5;
+this.opacity = 1;
+const types = ['💫', '🌟', '🤍', '✨', '💖', '🌸', '🎀'];
+this.type = types[Math.floor(Math.random() * types.length)];
+}
+update() {
+this.x += this.speedX;
+this.y += this.speedY;
+this.opacity -= 0.008;
+}
+draw() {
+ctx.save();
+ctx.globalAlpha = this.opacity;
+ctx.font = ${this.size}px Arial;
+ctx.fillText(this.type, this.x, this.y);
+ctx.restore();
+}
+}
+function handleParticles() {
+for (let i = 0; i < particles.length; i++) {
+particles[i].update();
+particles[i].draw();
+if (particles[i].opacity <= 0) {
+particles.splice(i, 1);
+i--;
+}
+}
+}
+window.addEventListener('mousemove', function(e) {
+if(Math.random() > 0.85) {
+particles.push(new Particle(e.clientX, e.clientY));
+}
+});
+window.addEventListener('touchmove', function(e) {
+if(Math.random() > 0.85 && e.touches.length > 0) {
+particles.push(new Particle(e.touches[0].clientX, e.touches[0].clientY));
+}
+});
+setInterval(() => {
+if(particles.length < 35) {
+particles.push(new Particle(Math.random() * canvas.width, canvas.height + 20));
+}
+}, 250);
+function animate() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+handleParticles();
+requestAnimationFrame(animate);
+}
+animate();
